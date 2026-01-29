@@ -341,10 +341,52 @@
             transform: perspective(1000px) rotateY(0deg);
         }
 
+        /* Carousel Styles */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            display: none;
+            width: 100%;
+            height: auto;
+        }
+
+        .carousel-slide.active {
+            display: block;
+        }
+
         .hero-image img {
             width: 100%;
             height: auto;
             display: block;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: rgba(255, 255, 255, 0.9);
+            transform: scale(1.2);
         }
 
         .hero-image::after {
@@ -931,6 +973,11 @@
             line-height: 2.25;
         }
 
+        .contact-info p {
+            color: var(--purple-primary);
+            font-weight: 500;
+        }
+
         .contact-info a {
             display: block;
             color: var(--purple-primary);
@@ -1121,8 +1168,8 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Who Will Lead The Revival?</h1>
-                    <p class="subhead">The Purple Pub, a Williamstown gathering place for generations is selecting a qualified owner/operator to steward its next incarnation—and take it to new heights.</p>
+                    <h1>Will You Lead the Revival?</h1>
+                    <p class="subhead">The Purple Pub has been a Williamstown gathering place for generations. We're selecting a proven owner/operator to reopen The Purple Pub and elevate the operation for the next decade and beyond.</p>
                     <div class="hero-cta">
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLScHve2lxvkv9KpNGAdvKSrOBB_aSycuIGzQtO5jp-wyQ1ZsTw/viewform?usp=dialog" class="btn btn-primary" target="_self">Apply to Operate The Purple Pub</a>
                     </div>
@@ -1187,10 +1234,11 @@
             <div style="max-width: 900px; margin: 0 auto;">
                 <p>This is an opportunity to relaunch a recognized Williamstown Pub brand in a prime Spring Street location. We are selecting an operator who can preserve what makes the Pub recognizable, while executing a modern, durable food-and-beverage business.</p>
                 
-                <h3>What "new heights" means</h3>
+                <h3>What means to elevate the operation</h3>
                 <ul class="styled-list">
                     <li>A consistently excellent operation year-round</li>
-                    <li>A best-in-class guest experience for locals and the Williams community</li>
+                    <li>A best-in-class guest experience for locals and the Williams Community</li>
+                    <li>A welcoming kitchen and bar serving classic pub favorites, well executed - plus seasonal specials.</li>
                     <li>The ability to perform flawlessly during peak weekends and high-volume nights</li>
                     <li>A stable, well-trained team with disciplined operating controls</li>
                     <li>Strong compliance and responsible service as a non-negotiable standard</li>
@@ -1215,7 +1263,7 @@
                         <li>Capital and leadership to recruit, train, and retain a strong team</li>
                         <li>A credible liquor license and compliance plan</li>
                         <li>A practical plan to refresh the premises, including interior improvements and/or FF&E</li>
-                        <li>The temperament to serve both locals and the Williams community with consistency</li>
+                        <li>The temperament to serve both locals and the Williams Community with consistency</li>
                     </ul>
                 </div>
                 <div>
@@ -1367,9 +1415,9 @@
             <div class="contact-card">
                 <h3>Contact</h3>
                 <div class="contact-info">
-                    <p><strong>Williamstown Rentals</strong></p>
+                    <p>61 Spring Street LLC</p>
                     <a href="tel:4134589834">413.458.9834</a>
-                    <a href="mailto:info@williamstownrentals.com">info@williamstownrentals.com</a>
+                    <a href="/cdn-cgi/l/email-protection#d9b0b7bfb699aeb0b5b5b0b8b4aaadb6aeb7abbcb7adb8b5aaf7bab6b4"><span class="__cf_email__" data-cfemail="8fe6e1e9e0cff8e6e3e3e6eee2fcfbe0f8e1fdeae1fbeee3fca1ece0e2">[email&#160;protected]</span></a>
                 </div>
             </div>
         </div>
@@ -1381,7 +1429,7 @@
     </footer>
 
     <!-- JavaScript -->
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Sticky Header
         const header = document.getElementById('header');
         let lastScroll = 0;
@@ -1489,16 +1537,4 @@
             window.location.href = `mailto:info@williamstownrentals.com?subject=${subject}&body=${body}`;
             
             // Show success message
-            successMessage.style.display = 'block';
-            form.reset();
-
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                successMessage.style.display = 'none';
-            }, 5000);
-
-            return false;
-        }
-    </script>
-</body>
-</html>
+            successMessage.style.display = '
