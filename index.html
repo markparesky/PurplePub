@@ -749,9 +749,8 @@
 
         /* Apply Section - REDESIGNED */
         .apply-panels {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            display: flex;
+            justify-content: center;
             margin-top: 3rem;
         }
 
@@ -761,6 +760,8 @@
             padding: 3rem;
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 600px;
+            width: 100%;
         }
 
         .apply-panel h3 {
@@ -1008,8 +1009,7 @@
 
             .hero-content,
             .two-column,
-            .value-cards,
-            .apply-panels {
+            .value-cards {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
             }
@@ -1177,20 +1177,18 @@
     <section id="opportunity">
         <div class="container">
             <h2 class="section-header">The Opportunity</h2>
-            <div class="two-column">
-                <div>
-                    <p>This is an opportunity to relaunch a recognized Williamstown pub brand in a prime Spring Street location. We are selecting an operator who can preserve what makes the Pub recognizable while executing a modern, durable food-and-beverage business.</p>
-                    
-                    <h3>What "new heights" means here</h3>
-                    <ul class="styled-list">
-                        <li>A consistently excellent operation year-round</li>
-                        <li>A best-in-class guest experience for locals and the Williams community</li>
-                        <li>The ability to perform flawlessly during peak weekends and high-volume nights</li>
-                        <li>A stable, well-trained team with disciplined operating controls</li>
-                        <li>Strong compliance and responsible service as a non-negotiable standard</li>
-                        <li>A business that is stronger five and ten years from now than on opening day</li>
-                    </ul>
-                </div>
+            <div style="max-width: 900px; margin: 0 auto;">
+                <p>This is an opportunity to relaunch a recognized Williamstown pub brand in a prime Spring Street location. We are selecting an operator who can preserve what makes the Pub recognizable while executing a modern, durable food-and-beverage business.</p>
+                
+                <h3>What "new heights" means here</h3>
+                <ul class="styled-list">
+                    <li>A consistently excellent operation year-round</li>
+                    <li>A best-in-class guest experience for locals and the Williams community</li>
+                    <li>The ability to perform flawlessly during peak weekends and high-volume nights</li>
+                    <li>A stable, well-trained team with disciplined operating controls</li>
+                    <li>Strong compliance and responsible service as a non-negotiable standard</li>
+                    <li>A business that is stronger five and ten years from now than on opening day</li>
+                </ul>
             </div>
         </div>
     </section>
