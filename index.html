@@ -1350,7 +1350,7 @@
             
             <div class="faq-accordion">
                 <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
+                    <button class="faq-question">
                         Are you selling the real estate?
                     </button>
                     <div class="faq-answer">
@@ -1361,7 +1361,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
+                    <button class="faq-question">
                         Is this a franchise?
                     </button>
                     <div class="faq-answer">
@@ -1372,7 +1372,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
+                    <button class="faq-question">
                         Do I need a liquor license?
                     </button>
                     <div class="faq-answer">
@@ -1383,7 +1383,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
+                    <button class="faq-question">
                         Is there a deadline?
                     </button>
                     <div class="faq-answer">
@@ -1394,7 +1394,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
+                    <button class="faq-question">
                         What happens after I apply?
                     </button>
                     <div class="faq-answer">
@@ -1486,27 +1486,31 @@
         });
 
         // FAQ Accordion
-        window.toggleFaq = function(button) {
-            const faqItem = button.parentElement;
-            const answer = faqItem.querySelector('.faq-answer');
-            const isActive = button.classList.contains('active');
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(button => {
+            button.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                const isActive = this.classList.contains('active');
 
-            // Close all FAQs
-            document.querySelectorAll('.faq-question').forEach(q => {
-                q.classList.remove('active');
-                const ans = q.parentElement.querySelector('.faq-answer');
-                if (ans) ans.style.maxHeight = '0';
-            });
+                // Close all FAQs
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                    const ans = q.parentElement.querySelector('.faq-answer');
+                    if (ans) ans.style.maxHeight = '0px';
+                });
 
-            // Open clicked FAQ if it wasn't active
-            if (!isActive && answer) {
-                button.classList.add('active');
-                const content = answer.querySelector('.faq-answer-content');
-                if (content) {
-                    answer.style.maxHeight = content.scrollHeight + 40 + 'px'; // Add extra padding space
+                // Open clicked FAQ if it wasn't active
+                if (!isActive && answer) {
+                    this.classList.add('active');
+                    const content = answer.querySelector('.faq-answer-content');
+                    if (content) {
+                        answer.style.maxHeight = content.scrollHeight + 40 + 'px';
+                    }
                 }
-            }
-        }
+            });
+        });
 
         // Form Submission Handler
         function handleInfoSubmit(event) {
@@ -1537,4 +1541,13 @@
             window.location.href = `mailto:info@williamstownrentals.com?subject=${subject}&body=${body}`;
             
             // Show success message
-            successMessage.style.display = '
+            successMessage.style.display = 'block';
+            
+            // Reset form
+            form.reset();
+            
+            return false;
+        }
+    </script>
+</body>
+</html>
